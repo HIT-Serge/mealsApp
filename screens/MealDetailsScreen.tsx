@@ -1,38 +1,52 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useContext } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, Button } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { MEALS } from '../data/dummy-data';
 import type Meal from '../models/meal';
 import { Platform } from 'react-native';
 import { iOSShadow } from '../constants/styleObjects';
-
 import MealDetails from '../components/MealDetail/MealDetails';
 import Subtitle from '../components/MealDetail/Subtitle';
-
 import MappedList from '../components/MealDetail/MappedList';
 import IconButton from '../components/IconButton';
+import { FavoritesContext } from '../store/context/favorites-context';
+import { Ionicons } from '@expo/vector-icons';
 
+type FavoritesContextType = {
+    ids: string[];
+    addFavorite: (id: string) => void;
+    removeFavorite: (id: string) => void;
+};
 
 export default function MealDetailsScreen() {
 
 
     const route = useRoute();
     const navigation = useNavigation();
+    const favMealsContext = useContext<FavoritesContextType>(FavoritesContext);
+    const currentMealID: string = (route.params as { mealID: string }).mealID;
+    const isFavorite: boolean = favMealsContext.ids.includes(currentMealID);
+    const favIcon: keyof typeof Ionicons.glyphMap = isFavorite ? 'star' : 'star-outline';
 
-    const onPressHandler = () => {
-        console.log('pressed');
+    // console.log(currentMealID);
+    // console.log(navigation);
+    console.log(favMealsContext.ids);
+
+    const favoriteHandler = () => {
+        isFavorite ? favMealsContext.removeFavorite(currentMealID) : favMealsContext.addFavorite(currentMealID);
     }
+
 
     useLayoutEffect(() => {
         navigation.setOptions({
 
             headerRight: () => {
-                return <IconButton icon={'star'} onPressHandler={onPressHandler} color='black' size={24} />
+                return <IconButton icon={favIcon} onPressHandler={favoriteHandler} color='black' size={24} />
 
                 // return <Button title='Tap me' onPress={onPressHandler}></Button>
             }
         })
-    }, [navigation, onPressHandler])
+    }, [navigation, favoriteHandler])
 
     const mealID: string = (route.params as { mealID: string }).mealID;
     const bgColor: string = (route.params as { bgColor: string }).bgColor;

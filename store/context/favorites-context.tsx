@@ -9,15 +9,17 @@ type FavoritesContextType = {
 };
 
 // context
-const FavoritesContext = createContext<FavoritesContextType>({
+export const FavoritesContext = createContext<FavoritesContextType>({
     ids: [],
     addFavorite: (id) => { },
     removeFavorite: (id) => { },
 });
 
 
+
+
 export default function FavoritesContextProvider({ children }: PropsWithChildren) {
-    // waarde
+
 
     const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
 
@@ -27,12 +29,14 @@ export default function FavoritesContextProvider({ children }: PropsWithChildren
     const removeFavorite = (id: string) => {
         setFavoriteIds((currentFavIds): string[] => [...currentFavIds.filter((mealId) => mealId !== id)]);
     }
-
+    // waarde
     const value: FavoritesContextType = {
         ids: favoriteIds,
         addFavorite: addFavorite,
         removeFavorite: removeFavorite,
     }
 
-    return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>
+    return <FavoritesContext.Provider
+        value={value}>{children}
+    </FavoritesContext.Provider>
 }
