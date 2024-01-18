@@ -6,20 +6,20 @@ class Category {
   title: string;
   color: string;
 
-  
-  
-  constructor(id: string , title: string, color: string) {
-    let navigate = useNavigation();
+
+
+  constructor(id: string, title: string, color: string) {
+    // let navigate = useNavigation();
     this.id = id;
     this.title = title;
     this.color = color;
   }
-  
+
   // onPress(navigate: any) {
   //   navigate.navigate("MealsOverview" as never);
   // }
-  
- 
+
+
 
 }
 

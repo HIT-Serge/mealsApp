@@ -9,21 +9,31 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 // uitzoeken met deze types
 type RootStackParamList = {
     MealsOverview: undefined;
+    // params: { categoryId: string };
     // Add other screen names and their respective params here
 };
 
 type CategoriesScreenProps = {
+    // i think the second one are teh params of the function
     navigation: NativeStackNavigationProp<RootStackParamList>;
 };
 
-const CategoriesScreen = ({navigation}: CategoriesScreenProps) => {
+const CategoriesScreen = ({ navigation }: CategoriesScreenProps) => {
+    // type myType =
+    //     {
+    //         categoryId: string;
+    //     };
     // const ReturnCategoryItem = ({item}: {item: {id: string, title: string, color: string}}) => {
-    const RenderCategoryItem = ({item}: {item: Category}) => {
+    const RenderCategoryItem = ({ item }: { item: Category }) => {
+        // console.log(item);
         function pressHandler() {
-            navigation.navigate("MealsOverview");
+            navigation.navigate("MealsOverview", { categoryId: item.id, color: item.color } as any);
+
+
+            // { route: { params } }: { route: { params: { categoryId: string } } }
         }
         return (
-            <CategoryGridTile id={item.id} title={item.title} color={item.color} onPress={pressHandler}/>
+            <CategoryGridTile id={item.id} title={item.title} color={item.color} onPress={pressHandler} />
             // <CategoryGridTile item={item}/>
         )
     }
@@ -36,7 +46,7 @@ const CategoriesScreen = ({navigation}: CategoriesScreenProps) => {
             renderItem={({ item }) => (
                 <RenderCategoryItem item={item} />
             )}
-            
+
         />
     )
 
