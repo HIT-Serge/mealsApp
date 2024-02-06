@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, FlatList } from 'react-native';
 import { CATEGORIES, MEALS } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
-import type Category from '../models/category';
+import type Category from './models/category';
 // you can use import type to import the type of a variable, function, or class without importing the variable, function, or class itself.
 
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';

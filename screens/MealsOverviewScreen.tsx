@@ -5,8 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useRoute, useNavigation } from '@react-navigation/native';
-import type Meal from '../models/meal';
-import type Category from '../models/category';
+import type Meal from './models/meal';
+import type Category from './models/category';
 import MealItem from '../components/MealItem';
 
 type RootStackParamList = {

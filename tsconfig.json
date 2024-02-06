@@ -3,13 +3,8 @@
     "strict": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "types": [
-      "node"
-    ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "Types"
-    ]
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types", "Types"]
   },
   // "include": [
   //   "components/**/*",

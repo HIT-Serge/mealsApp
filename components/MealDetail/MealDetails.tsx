@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable, Image, Platform } from 'react-native';
-import type Meal from '../../models/meal';
+import type Meal from '../../screens/models/meal';
 
 
 export default function MealDetails(props: { item: Meal, textColor: string }) {

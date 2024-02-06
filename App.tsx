@@ -91,7 +91,8 @@ export default function App() {
                 return {
                   title: catID,
                   headerTintColor: stackScreenStyle.headerTintColor,
-                  headerStyle: { backgroundColor: stackScreenStyle.headerStyle.backgroundColor }, headerTitleStyle: { fontWeight: stackScreenStyle.headerTitleStyle.fontWeight as any }
+                  headerStyle: { backgroundColor: stackScreenStyle.headerStyle.backgroundColor },
+                  headerTitleStyle: { fontWeight: stackScreenStyle.headerTitleStyle.fontWeight as any }
                 }
               }}
             />

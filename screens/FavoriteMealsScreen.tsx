@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { FavoritesContext } from '../store/context/favorites-context';
 import MealItem from '../components/MealItem';
-import Meal from '../models/meal';
+import Meal from './models/meal';
 import { MEALS } from '../data/dummy-data';
 import { useRoute, useNavigation } from '@react-navigation/native';
 

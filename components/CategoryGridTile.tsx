@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Pressable, Platform } from 'react-native';
-import type Category from '../models/category';
+import type Category from '../screens/models/category';
 import ColorChange from './ColorChange';
 // import { useNavigation } from '@react-navigation/native';
 

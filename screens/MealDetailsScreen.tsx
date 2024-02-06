@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useContext } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, Button } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { MEALS } from '../data/dummy-data';
-import type Meal from '../models/meal';
+import type Meal from './models/meal';
 import { Platform } from 'react-native';
 import { iOSShadow } from '../constants/styleObjects';
 import MealDetails from '../components/MealDetail/MealDetails';
